@@ -13,25 +13,48 @@
 <form action="" id="form-choose-license-plan" class="form-choose-licence-plan">
   <fieldset>
     <legend class="visually-hidden">Choose license plan</legend>
-   <div class="form-choose-licence-plan__field">
+   <div class="form-choose-licence-plan__field" data-index="1">
       <input id="radio-1" name="choose-licence-plan" type="radio">
       <label for="radio-1" class="form-choose-licence-plan__label"> License plan #1 </label>
-      <span data-value="13">$13 per license</span>
+      <span class="form-choose-licence-plan__price" data-value="13">$13 per license</span>
     </div>
 
-    <div class="form-choose-licence-plan__field">
+    <div class="form-choose-licence-plan__field" data-index="2">
       <input id="radio-2" name="choose-licence-plan" type="radio">
       <label for="radio-2" class="form-choose-licence-plan__label"> License plan #2 </label>
       <span data-value="22">$22 per license</span>
     </div>
 
-    <div class="form-choose-licence-plan__field focus">
+    <div class="form-choose-licence-plan__field focus" data-index="3">
       <input id="radio-3" name="choose-licence-plan" type="radio" checked>
       <label for="radio-3" class="form-choose-licence-plan__label"> License plan #3 </label>
       <span data-value="34">$34 per license</span>
     </div>
   </fieldset>
   <hr>
+  <div class="form-choose-license-plan__select">
+    <label for="select-number-of-licenses">Number of licenses:</label>
+    <select class="form-control" id="select-number-of-licenses">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option selected="selected" value="10">10</option>
+    </select>
+  </div>
+  <hr>
+  <label class="form-choose-licence-plan__total-price">Total:
+    <span class="total-price__prefix">$</span>
+    <input class="total-price" type="text" readonly="readonly" size="2" value="340">
+    <sup class="total-price__postfix">US</sup>
+  </label>
+  <button>Buy now</button>
+  <p class="choose-plan">Selected plan: #<span value="3">3</span></p>
 </form>
 <script src="scripts.js"></script>
 </body>
