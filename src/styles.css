@@ -159,4 +159,5 @@ button {
 .choose-plan {
   text-align: center;
   font: 10px Arial, serif;
+  color: var(--primary-color);
 }
