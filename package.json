@@ -1,7 +1,7 @@
 {
   "name": "afla-group-test-1",
   "description": "",
-  "main": "index.html",
+  "main": "src/index.html",
   "scripts": {
     "start": "parcel src/index.html",
     "fix": "semistandard --fix",
