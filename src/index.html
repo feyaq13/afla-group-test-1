@@ -6,9 +6,33 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Test 1</title>
+  <link rel="stylesheet" href="font/font.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<form action="" id="form-choose-license-plan" class="form-choose-licence-plan">
+  <fieldset>
+    <legend hidden>Choose license plan</legend>
+   <div class="form-choose-licence-plan__field">
+      <input id="radio-1" name="choose-licence-plan" type="radio">
+      <label for="radio-1" class="form-choose-licence-plan__label"> License plan #1 </label>
+      <span>$13 per license</span>
+    </div>
+
+    <div class="form-choose-licence-plan__field">
+      <input id="radio-2" name="choose-licence-plan" type="radio">
+      <label for="radio-2" class="form-choose-licence-plan__label"> License plan #2 </label>
+      <span>$22 per license</span>
+    </div>
+
+    <div class="form-choose-licence-plan__field focus">
+      <input id="radio-3" name="choose-licence-plan" type="radio" checked>
+      <label for="radio-3" class="form-choose-licence-plan__label"> License plan #3 </label>
+      <span>$34 per license</span>
+    </div>
+  </fieldset>
+  <hr>
+</form>
 <script src="scripts.js"></script>
 </body>
 </html>
