@@ -1,57 +1,34 @@
-var planFieldsObject = function () {
-  const fields = document.querySelectorAll('.form-choose-licence-plan__field');
-  var currentPlanField = function findElementInFocus() {
-    Array.from(fields).find(function (field) {
-      return field.classList.contains('focus');
-    });
-  };
-
-  return {
-    fields: fields,
-    currentPlanField: currentPlanField
-  }
-}();
-
-// const planFields = document.querySelectorAll('.form-choose-licence-plan__field');
-planFieldsObject.fields.forEach(field => field.addEventListener('click', selectCurrent));
-
-var currentPlanField = planFieldsObject.currentPlanField();
-
-// console.log(planFieldsObject.fields);
-
-function selectCurrent(e) {
-  if (planFieldsObject.currentPlanField()) {
-    currentPlanField.classList.remove('focus');
-  }
-
-  e.currentTarget.querySelector('input').checked = true;
-  e.currentTarget.classList.add('focus');
-  currentPlanField = e.currentTarget;
-  document.querySelector('.choose-plan > span').innerText = currentPlanField.dataset.index;
-}
-
 const totalPriceElement = document.querySelector('.total-price');
-const numberOfLicenses = document.querySelector('select');
-let numberOfLicensesValue = numberOfLicenses.selectedIndex + 1;
+const selectedPlanNumberElement = document.querySelector('.choose-plan > span');
 
-let licensePrice = 34;
-// console.log(Array.from(planFields));
+const licenseRadioFields = document.querySelectorAll('.form-choose-licence-plan__field');
+licenseRadioFields.forEach((field) => field.addEventListener('click', selectPlan));
 
-// .find(childNode => childNode.dataset?.value).dataset.value;
+const licensesQuantitySelectElement = document.querySelector('select');
+licensesQuantitySelectElement.addEventListener('change', calculate);
 
-numberOfLicenses.addEventListener('change', function() {
-  numberOfLicensesValue = numberOfLicenses.selectedIndex + 1;
-  calculate()
+let currentLicenseRadioField = Array.from(licenseRadioFields).find(function (fieldElement) {
+  return fieldElement.classList.contains('focus');
 });
 
-planFieldsObject.fields.forEach((field, i ) => field.addEventListener('click', function (e) {
-  licensePrice = e.currentTarget.querySelector('span').dataset.value;
-  calculate()
-}));
-
 function calculate() {
-  totalPriceElement.value = numberOfLicensesValue * licensePrice;
+  totalPriceElement.value = getLicensesQuantity() * getCurrentLicensePrice();
+  selectedPlanNumberElement.innerText = currentLicenseRadioField.dataset.index;
 }
 
-calculate();
+function selectPlan(e) {
+  currentLicenseRadioField.classList.remove('focus');
+  currentLicenseRadioField = e.currentTarget;
+  e.currentTarget.querySelector('input').checked = true;
+  currentLicenseRadioField.classList.add('focus');
 
+  calculate();
+}
+
+function getCurrentLicensePrice() {
+  return currentLicenseRadioField.dataset.value;
+}
+
+function getLicensesQuantity() {
+  return licensesQuantitySelectElement.value;
+}
