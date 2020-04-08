@@ -128,10 +128,12 @@ fieldset {
 }
 
 .form-choose-licence-plan__total-price input {
-  background: none;
   display: inline-block;
+  max-width: 24px;
+  padding: 0;
   margin-left: -.125em;
   margin-right: -.125em;
+  background: none;
   border: none;
 }
 
